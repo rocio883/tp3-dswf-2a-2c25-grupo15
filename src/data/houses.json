@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "name": "House Stark",
+    "region": "North",
+    "seat": "Winterfell",
+    "words": "Winter is coming",
+    "alliances": "House Tully, House Arryn"
+  },
+  {
+    "id": 2,
+    "name": "House Lannister",
+    "region": "Westerlands",
+    "seat": "Casterly Rock",
+    "words": "Hear me roar!",
+    "alliances": "House Tyrell (temporal), House Frey (temporal)"
+  },
+  {
+    "id": 3,
+    "name": "House Targaryen",
+    "region": "Dragonstone/Westeros",
+    "seat": "King’s Landing",
+    "words": "Fire and blood",
+    "alliances": "House Martell (temporal), Dothraki, Unsullied"
+  },
+  {
+    "id": 4,
+    "name": "House Baratheon",
+    "region": "Stormlands/Westerlands",
+    "seat": "Storm’s End/King’s Landing",
+    "words": "Ours is the fury",
+    "alliances": "House Tully, House Tyrell"
+  },
+  {
+    "id": 5,
+    "name": "House Greyjoy",
+    "region": "Iron Islands",
+    "seat": "Pyke",
+    "words": "We do not sow",
+    "alliances": "House Stark (temporal), House Lannister (temporal)"
+  },
+  {
+    "id": 6,
+    "name": "House Tyrell",
+    "region": "Reach",
+    "seat": "Highgarden",
+    "words": "Growing strong",
+    "alliances": "House Lannister, House Baratheon (temporal)"
+  },
+  {
+    "id": 7,
+    "name": "House Martell",
+    "region": "Dorne",
+    "seat": "Sunspear",
+    "words": "Unbowed, unbent, unbroken",
+    "alliances": "House Targaryen (temporal)"
+  },
+  {
+    "id": 8,
+    "name": "House Arryn",
+    "region": "Vale of Arryn",
+    "seat": "The Eyrie",
+    "words": "As high as honor",
+    "alliances": "House Stark, House Tully"
+  },
+  {
+    "id": 9,
+    "name": "House Tully",
+    "region": "Riverlands",
+    "seat": "Riverrun",
+    "words": "Family, duty, honor",
+    "alliances": "House Stark, House Baratheon"
+  },
+  {
+    "id": 10,
+    "name": "House Mormont",
+    "region": "North",
+    "seat": "Bear Island",
+    "words": "Here we stand",
+    "alliances": "House Stark"
+  },
+  {
+    "id": 11,
+    "name": "House Bolton",
+    "region": "North",
+    "seat": "Dreadfort",
+    "words": "Our blades are sharp",
+    "alliances": "House Lannister (temporal)"
+  },
+  {
+    "id": 12,
+    "name": "House Frey",
+    "region": "Riverlands",
+    "seat": "The Twins",
+    "words": "We stand together",
+    "alliances": "House Lannister (temporal), House Stark (temporal)"
+  },
+  {
+    "id": 13,
+    "name": "House Tarly",
+    "region": "Reach",
+    "seat": "Horn Hill",
+    "words": "First in battle",
+    "alliances": "House Tyrell, House Baratheon"
+  },
+  {
+    "id": 14,
+    "name": "House Karstark",
+    "region": "North",
+    "seat": "Karhold",
+    "words": "The sun of winter",
+    "alliances": "House Stark"
+  },
+  {
+    "id": 15,
+    "name": "House Reed",
+    "region": "North",
+    "seat": "Greywater Watch",
+    "words": "We remember",
+    "alliances": "House Stark"
+  },
+  {
+    "id": 16,
+    "name": "House Dayne",
+    "region": "Dorne",
+    "seat": "Starfall",
+    "words": "We are the morning",
+    "alliances": "House Targaryen (temporal)"
+  },
+  {
+    "id": 17,
+    "name": "House Hightower",
+    "region": "Reach",
+    "seat": "Oldtown",
+    "words": "We light the way",
+    "alliances": "House Targaryen"
+  },
+  {
+    "id": 18,
+    "name": "House Blackwood",
+    "region": "Riverlands",
+    "seat": "Raventree Hall",
+    "words": "Shadows guard the river",
+    "alliances": "House Stark, House Tully"
+  },
+  {
+    "id": 19,
+    "name": "House Manderly",
+    "region": "North",
+    "seat": "White Harbor",
+    "words": "A trident true",
+    "alliances": "House Stark"
+  },
+  {
+    "id": 20,
+    "name": "House Umber",
+    "region": "North",
+    "seat": "Last Hearth",
+    "words": "Strong and true",
+    "alliances": "House Stark"
+  }
+]
