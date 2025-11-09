@@ -6,6 +6,8 @@ import daenerys from "../assets/daenerys-targaryen.jpg";
 import jaime from "../assets/jaime-lannister.jpeg";
 import tyrion from "../assets/tyrion-lannister.jpg";
 
+import ProgressBar from "./ProgressBar";
+
 function MemberDetail() {
   const { id } = useParams();
 
@@ -15,6 +17,12 @@ function MemberDetail() {
       image: jonSnow,
       location: "Winterfell - 24 años",
       skills: ["Javascript", "MySQL", "NodeJs", "C# .NET"],
+      skillsLevel: {
+        Javascript: 85,
+        MySQL: 70,
+        "NodeJs": 80,
+        "C# .NET": 60,
+      },
       movies: ["Interstellar", "Good Will Hunting", "El Padrino"],
       music: ["José Larralde", "Soledad", "Joaquín Sabina"],
       quote: "Quiero pelear del lado que pelea por los que viven.",
@@ -24,6 +32,12 @@ function MemberDetail() {
       image: daenerys,
       location: "Essos - 22 años",
       skills: ["HTML", "CSS", "React", "JavaScript"],
+      skillsLevel: {
+        HTML: 85,
+        CSS: 70,
+        React: 65,
+        JavaScript: 75,
+      },
       movies: ["El Señor de los Anillos", "Matrix", "Avatar"],
       music: ["Coldplay", "Imagine Dragons", "The Weeknd"],
       quote:
@@ -34,6 +48,12 @@ function MemberDetail() {
       image: jaime,
       location: "Casterly Rock - 32 años",
       skills: ["Figma", "Adobe XD", "Sketch", "Photoshop"],
+      skillsLevel: {
+        Figma: 65,
+        "Adobe XD": 70,
+        Sketch: 65,
+        Photoshop: 75,
+      },
       movies: ["Depredador", "Lo que el viento se llevo", "Das Boot"],
       music: ["Jorge Cafrune y Marito", "Los Kjarkas", "Jose Luis Perales"],
       quote:
@@ -44,6 +64,12 @@ function MemberDetail() {
       image: tyrion,
       location: "Casterly Rock - 32 años",
       skills: ["Selenium", "Jest", "Cypress", "Postman"],
+      skillsLevel: {
+        Selenium: 65,
+        Jest: 70,
+        Cypress: 55,
+        Postman: 85,
+      },
       movies: ["Forrest Gump", "Pulp Fiction", "El Club de la Pelea"],
       music: ["Frank Sinatra", "Dean Martin", "Nat King Cole"],
       quote:
@@ -72,11 +98,24 @@ function MemberDetail() {
 
         <div className="member-information">
           <h3>Habilidades</h3>
-          <ul>
-            {member.skills.map((skill, index) => (
-              <li key={index}>{skill}</li>
-            ))}
-          </ul>
+
+          <div className="skills-container">
+            {member.skills.map((skill, index) => {
+              const percent = member.skillsLevel?.[skill] || 0;
+              return (
+                <div key={index} className="skill-row">
+                  <span className="skill-name">{skill}</span>
+
+                  <div className="skill-bar-wrapper">
+                    <div className="skill-bar">
+                      <ProgressBar label="" percent={percent} />
+                    </div>
+                    <span className="skill-percent">{percent}%</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         <div className="member-information">
