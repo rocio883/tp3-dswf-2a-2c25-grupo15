@@ -3,23 +3,21 @@ import "../styles/style.css";
 
 function Characters() {
   const [characters, setCharacters] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [page, setPage] = useState(1);
+  const limit = 8; // 8 personajes por página → 2 filas de 4
+  const [loading, setLoading] = useState(false);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     const fetchCharacters = async () => {
+      setLoading(true);
       try {
-        // Esperamos la respuesta y le pegamos a la api de GoT
-        const response = await fetch(
-          "https://thronesapi.com/api/v2/Characters",
-        );
-
-        if (!response.ok) {
-          throw new Error("Error al cargar los personajes");
-        }
-        const data = await response.json();
-        // Limitamos los personajes a 20
-        setCharacters(data.slice(0, 20));
+        const res = await fetch("https://thronesapi.com/api/v2/Characters");
+        const data = await res.json();
+        setTotalPages(Math.ceil(data.length / limit));
+        const start = (page - 1) * limit;
+        const end = start + limit;
+        setCharacters(data.slice(start, end));
       } catch (err) {
         setError(err.message);
       } finally {
@@ -28,49 +26,97 @@ function Characters() {
     };
 
     fetchCharacters();
-  }, []);
+  }, [page]);
 
-  if (loading) {
-    return (
-      <section className="characters-section">
-        <div className="loading">Cargando personajes...</div>
-      </section>
-    );
-  }
-
-  if (error) {
-    return (
-      <section className="characters-section">
-        <div className="error">Error: {error}</div>
-      </section>
-    );
-  }
+  const nextPage = () => setPage((p) => Math.min(p + 1, totalPages));
+  const prevPage = () => setPage((p) => Math.max(p - 1, 1));
 
   return (
     <section className="characters-section">
       <h2>PERSONAJES DE GAME OF THRONES</h2>
       <p className="characters-intro">
-        Data obtenida de la API pública "Game of Thrones Character Api"
+        Data obtenida de la API pública{" "}
+        <strong>"Game of Thrones Character Api"</strong>
       </p>
 
-      <div className="characters-grid">
-        {characters.map((character) => (
-          <div key={character.id} className="character-card">
-            <div className="character-image">
-              <img src={character.imageUrl} alt={character.fullName} />
-            </div>
-            <div className="character-info">
-              <h3>{character.fullName}</h3>
-              <p>
-                <strong>Título:</strong> {character.title}
-              </p>
-              <p>
-                <strong>Familia:</strong> {character.family}
-              </p>
-            </div>
-          </div>
-        ))}
+      {/* ✅ Controles arriba */}
+      <div className="pagination-controls top-controls">
+        <button
+          className="pagination-btn"
+          onClick={prevPage}
+          disabled={page === 1}
+        >
+          ◀ Anterior
+        </button>
+
+        <span className="pagination-info">
+          Página {page} / {totalPages}
+        </span>
+
+        <button
+          className="pagination-btn"
+          onClick={nextPage}
+          disabled={page === totalPages}
+        >
+          Siguiente ▶
+        </button>
       </div>
+
+      {loading ? (
+        <p className="loading">Cargando personajes...</p>
+      ) : (
+        <>
+          <div className="characters-grid">
+            {characters.map((char) => (
+              <div key={char.id} className="character-card">
+                <div className="character-image">
+                  <img
+                    src={char.imageUrl}
+                    alt={char.fullName}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src =
+                        "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
+                    }}
+                  />
+                </div>
+                <div className="character-info">
+                  <h3>{char.fullName}</h3>
+                  <p>
+                    <strong>Título:</strong> {char.title || "Sin título"}
+                  </p>
+                  <p>
+                    <strong>Familia:</strong> {char.family || "Desconocida"}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* ✅ Controles abajo */}
+          <div className="pagination-controls bottom-controls">
+            <button
+              className="pagination-btn"
+              onClick={prevPage}
+              disabled={page === 1}
+            >
+              ◀ Anterior
+            </button>
+
+            <span className="pagination-info">
+              Página {page} / {totalPages}
+            </span>
+
+            <button
+              className="pagination-btn"
+              onClick={nextPage}
+              disabled={page === totalPages}
+            >
+              Siguiente ▶
+            </button>
+          </div>
+        </>
+      )}
     </section>
   );
 }
