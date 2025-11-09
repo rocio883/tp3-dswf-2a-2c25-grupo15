@@ -1,0 +1,107 @@
+/* Estilos de las habilidades en MemberDetail.jsx */
+
+/* ProgressBar general */
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.progress-bar-container {
+  height: 12px;
+  background: #e5e5e5;
+  border-radius: 999px;
+  overflow: hidden;
+  display: flex;
+  align-items: center; /* mantiene centrado el inner */
+}
+
+.progress-inner {
+  background: linear-gradient(90deg, #4f9cf9, #7b61ff);
+  box-shadow: 0 3px 10px rgba(80, 60, 200, 0.15);
+  height: 100%;
+  border-radius: 999px;
+  transition: width 1s cubic-bezier(.2,.9,.3,1);
+}
+
+.progress-label {
+  margin-bottom: 4px;
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+/* Estilos específicos para MemberDetail.jsx */
+
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.skill-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.skill-name {
+  width: 120px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.skill-bar-wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 10px;
+}
+
+.skill-bar {
+  height: 100%;
+  flex: 1;
+  align-items: center;
+}
+
+.skill-percent {
+  width: 40px;
+  text-align: right;
+  font-size: 0.9rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.progress-bar-container {
+  height: 15px;
+  background: #e5e5e5;
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Barra de progreso */
+.progress-inner {
+  background: linear-gradient(90deg, #4f9cf9, #7b61ff);
+  box-shadow: 0 2px 6px rgba(80, 60, 200, 0.1);
+  height: 100%;
+  border-radius: 2px;
+  transition: width 1s cubic-bezier(.2,.9,.3,1);
+}
+
+
+@keyframes progressAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--progress-width);
+  }
+}
+
+.progress-inner.animate {
+  animation: progressAnimation 2s ease-in-out forwards;
+}
