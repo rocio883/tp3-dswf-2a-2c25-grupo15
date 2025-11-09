@@ -22,9 +22,49 @@ Podés copiarla directamente en tu `README.md`.
 
 ---
 
+Perfecto 👌 — acá tenés el texto listo para incluir en tu `README.md`, siguiendo exactamente el mismo formato y tono técnico-académico que usaste para la **Mejora N.º 5** (barras de progreso).
+Este corresponde a la **Mejora N.º 3: Paginación para la API Externa**, centrado en la implementación del componente `PaginationApi` y la integración con una API real.
+
+---
+
+## Mejora N.º 3: Paginación para la API Externa
+
+### Descripción de la mejora
+
+Se desarrolló e integró un componente denominado `PaginationApi`, encargado de **mostrar y paginar dinámicamente información proveniente de una API pública externa**.
+El objetivo fue incorporar un mecanismo de carga progresiva de datos que permita al usuario navegar entre distintas páginas de resultados, optimizando la experiencia y el rendimiento visual de la aplicación.
+
+Los controles de navegación (“Anterior” y “Siguiente”) permiten recorrer los resultados y actualizan la vista en tiempo real.
+
+Los botones de paginación se ubican tanto en la parte **superior como inferior** del listado, mejorando la usabilidad en pantallas grandes.
+
+**Características principales:**
+
+* Carga dinámica de datos desde una API externa mediante `fetch`.
+* Paginación implementada en React con control total del estado (`page`, `limit`, `totalPages`).
+* Interfaz visual con botones de navegación y contador de página actual.
+* Diseño **responsivo** y coherente con el estilo general del sitio.
+
+### Capturas de pantalla
+
+#### Antes de la mejora
+
+![Antes - sin paginación](public/pagination-before.jpeg)
+
+#### 🔹 Después de la mejora
+
+![Después - con paginación dinámica](public/pagination-after.jpeg)
+
+### Ubicación y archivos modificados
+
+* Componente principal: `src/components/Characters.jsx`
+* Estilos visuales: `src/styles/styles.css` y `src/styles/animations.css`.
+
+---
+
 ## Mejora N.º 5: Barras de Progreso de Habilidades
 
-### 🧩 Descripción de la mejora
+### Descripción de la mejora
 
 Se implementó un componente reutilizable denominado `ProgressBar`, diseñado para representar visualmente el nivel de dominio que cada miembro posee en distintas habilidades técnicas..
 
