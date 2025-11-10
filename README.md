@@ -14,16 +14,7 @@
 ## Evolución del Proyecto SPA
 Este proyecto forma parte de la **evolución del sitio SPA (Single Page Application)** iniciado en los trabajos prácticos anteriores (TP1 y TP2).  En esta etapa, se implementaron mejoras visuales e interactivas para optimizar la experiencia del usuario, aplicando los conceptos aprendidos. El objetivo general fue **aplicar cinco mejoras sugeridas** demostrando dominio de componentes, estilos, efectos visuales, y adaptación responsive.
 
----
 
-Perfecto 💪 — te dejo una **versión ampliada y formal** de la descripción para la **Mejora N.º 4 – Barras de progreso de habilidades**, redactada en el mismo estilo y estructura que el ejemplo de los botones sociales que me pasaste.
-
-Podés copiarla directamente en tu `README.md`.
-
----
-
-Perfecto 👌 — acá tenés el texto listo para incluir en tu `README.md`, siguiendo exactamente el mismo formato y tono técnico-académico que usaste para la **Mejora N.º 5** (barras de progreso).
-Este corresponde a la **Mejora N.º 3: Paginación para la API Externa**, centrado en la implementación del componente `PaginationApi` y la integración con una API real.
 
 ---
 
