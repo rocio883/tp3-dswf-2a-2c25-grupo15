@@ -36,7 +36,7 @@ function App() {
 
         {/* 👇 Nueva sección: Galería Interactiva */}
            <section className="gallerySection">
-               <h1>Mi galería</h1>
+               <h3>Fotos</h3>
                <Gallery images={images} />
           </section>
 
