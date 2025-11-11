@@ -1,0 +1,191 @@
+/* src/components/gallery/gallery.module.css */
+/* src/components/gallery/gallery.module.css */
+
+/* === GRID PRINCIPAL DE MINIATURAS === */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 12px;
+  justify-items: center;
+  align-items: center;
+  padding: 12px;
+}
+
+/* === BOTÓN DE MINIATURA === */
+.thumbBtn {
+  width: 100px;
+  height: 100px;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.thumbBtn:focus {
+  box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.5);
+}
+
+/* === MINIATURA / IMAGEN === */
+.thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+.thumbBtn:hover .thumb {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  filter: brightness(0.98);
+}
+
+/* === LIGHTBOX / OVERLAY === */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+/* === CONTENEDOR DE IMAGEN AMPLIADA === */
+.content {
+  position: relative;
+  width: 800px;  /* 🔹 Ancho fijo para uniformidad */
+  max-width: 95%;
+  max-height: 90vh;  /* 🔹 Altura máxima relativa a la ventana */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: none;
+}
+
+.imgWrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === IMAGEN AMPLIADA (LIGHTBOX) === */
+.lightImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* 🔹 Mantiene proporción sin deformar */
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+  -webkit-user-select: none;
+  user-select: none;
+  border-radius: 6px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+}
+
+/* Estado zoom */
+.zoomed {
+  transform: scale(2);
+  cursor: zoom-out;
+}
+
+/* === BOTONES DE NAVEGACIÓN === */
+.navLeft, .navRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.06);
+  color: white;
+  border: none;
+  font-size: 2.2rem;
+  width: 46px;
+  height: 64px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navLeft { left: 12px; }
+.navRight { right: 12px; }
+
+/* === BOTÓN DE CIERRE === */
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255,255,255,0.06);
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* === CAPTION / TEXTO DE DESCRIPCIÓN === */
+.caption {
+  margin-top: 14px;
+  color: #ddd;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* === SECCIÓN GALERÍA / TÍTULO === */
+.gallerySection {
+  font-family: inherit;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.gallerySection h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #040404;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+  }
+  .thumbBtn {
+    width: 90px;
+    height: 90px;
+  }
+  .content {
+    width: 90%; /* Lightbox más pequeño en tablet */
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .thumbBtn {
+    width: 80px;
+    height: 80px;
+  }
+  .gallerySection h1 {
+    font-size: 1.6rem;
+  }
+  .content {
+    width: 95%; /* Lightbox se adapta al móvil */
+  }
+}
